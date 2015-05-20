@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.hgn</groupId>
+    <artifactId>kimi</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  <groupId>com.hgn.kimi</groupId>
+  <artifactId>kimi-core</artifactId>
+  <version>1.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>kimi-core</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <!-- build相关 -->
+  <build>
+        <filters>
+            <filter>${props}</filter>
+        </filters>
+        <finalName>kimi-core</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+            <resource>
+            <directory>src/main/java</directory>
+            <filtering>true</filtering>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </resource>
+        </resources>
+    </build>
+  
+  <dependencies>
+    <dependency>
+    	<groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+    </dependency>
+    <!-- Spring -->
+    	<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jms</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
+        
+        
+        	<!-- ================================================= -->
+            <!-- struts2 -->
+            <!-- ================================================= -->
+			 <dependency>  
+			    <groupId>org.apache.struts</groupId>  
+			    <artifactId>struts2-core</artifactId>  
+			    <version>${struts.version}</version>  
+			 </dependency>  
+			 <dependency>  
+			    <groupId>org.apache.struts.xwork</groupId>  
+			    <artifactId>xwork-core</artifactId>  
+			    <version>${struts.version}</version>  
+			 </dependency> 
+            <dependency>  
+		    <groupId>org.apache.struts</groupId>  
+			    <artifactId>struts2-spring-plugin</artifactId>  
+			    <version>${struts.version}</version>  
+		 	</dependency>  
+		 	
+		 	<!-- 通用 -->
+		 	<dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+            </dependency>
+            
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+            </dependency>
+            
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>commons-pool</groupId>
+                <artifactId>commons-pool</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>commons-dbcp</groupId>
+                <artifactId>commons-dbcp</artifactId>
+            </dependency>
+            
+            
+            <!-- myibatis 配置 -->
+            <dependency>
+            <groupId>mysql</groupId>
+            	<artifactId>mysql-connector-java</artifactId>
+        	</dependency>
+            <dependency>  
+			    <groupId>org.mybatis</groupId>  
+			    <artifactId>mybatis</artifactId>  
+			 </dependency>  
+			 <dependency>  
+			    <groupId>org.mybatis</groupId>  
+			    <artifactId>mybatis-spring</artifactId>  
+			 </dependency>  
+    
+    
+    
+    
+  </dependencies>
+</project>

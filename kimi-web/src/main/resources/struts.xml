@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+  <constant name="struts.i18n.encoding" value="UTF-8"/>
+  <!-- 指定默认编码集 ，作用于HttpServletRequest的setCharacterEncoding（）和freemarker，vilocity的输出 -->
+  <constant value="false" name="struts.enable.DynamicMethodInvocation"/> 
+  <constant value="true" name="struts.devMode"/> 
+  <constant name="struts.ui.theme" value="xhtml"/>
+  <constant name="struts.configuration.xmlreload" value="true"/><!-- 当struts配置文件修改时是否自动加载 -->
+  <!-- 将action托管给spring -->
+  <constant name="struts.objectFactory" value="spring" />
+  
+  <!-- 用户信息 -->
+   <package name="default" namespace="/" extends="struts-default">
+     <default-action-ref name="index"/>
+     <global-results>
+         <result name="error">/error.jsp</result>
+     </global-results>
+      <global-exception-mappings>
+           <exception-mapping result="error" exception="java.lang.Exception"/>
+      </global-exception-mappings>
+   </package>
+  	<include file="action/user-action.xml"/>
+</struts>

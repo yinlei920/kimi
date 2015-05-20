@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.hgn</groupId>
+    <artifactId>kimi</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  
+  <groupId>com.hgn.kimi</groupId>
+  <artifactId>kimi-web</artifactId>
+  <version>1.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>kimi-web Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <!-- profiles -->
+  <profiles>
+	  <profile>
+	      <id>dev</id>
+	      <properties>
+	          <props>../antx-dev.properties</props>
+	          <projectName>kimi-web</projectName>
+	      </properties>
+	      <activation>
+	          <activeByDefault>true</activeByDefault>
+	      </activation>
+	  </profile>
+  </profiles>
+  
+  <!-- build -->
+  <build>
+  	<filters>
+            <filter>${props}</filter>
+        </filters>
+        <finalName>${projectName}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <filtering>true</filtering>
+                            <directory>src/main/webapp/WEB-INF</directory>
+                            <includes>
+                                <include>**/**/*.xml</include>
+                            </includes>
+                            <targetPath>WEB-INF</targetPath>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+        </plugins>
+  </build>
+  
+  <dependencies>
+    <!-- 业务逻辑包 -->
+    <dependency>
+        <groupId>com.hgn.kimi</groupId>
+        <artifactId>kimi-biz</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+    </dependency>
+    <!-- Spring -->
+    	<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jms</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
+        
+        
+        	<!-- ================================================= -->
+            <!-- struts2 -->
+            <!-- ================================================= -->
+			 <dependency>  
+			    <groupId>org.apache.struts</groupId>  
+			    <artifactId>struts2-core</artifactId>  
+			    <version>${struts.version}</version>  
+			 </dependency>  
+			 <dependency>  
+			    <groupId>org.apache.struts.xwork</groupId>  
+			    <artifactId>xwork-core</artifactId>  
+			    <version>${struts.version}</version>  
+			 </dependency> 
+            <dependency>  
+		    <groupId>org.apache.struts</groupId>  
+			    <artifactId>struts2-spring-plugin</artifactId>  
+			    <version>${struts.version}</version>  
+		 	</dependency>  
+		 	
+		 	<!-- 通用 -->
+		 	<dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+            </dependency>
+            
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+            </dependency>
+            
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>commons-pool</groupId>
+                <artifactId>commons-pool</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>commons-dbcp</groupId>
+                <artifactId>commons-dbcp</artifactId>
+            </dependency>
+            
+            
+            <!-- myibatis 配置 -->
+            <dependency>  
+			    <groupId>org.mybatis</groupId>  
+			    <artifactId>mybatis</artifactId>  
+			 </dependency>  
+			 <dependency>  
+			    <groupId>org.mybatis</groupId>  
+			    <artifactId>mybatis-spring</artifactId>  
+			 </dependency>  
+		 	
+  </dependencies>
+</project>
