@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
+    <!-- CORE 里的数据库、DAO的Bean加载 -->
    <import resource="classpath:core-application.xml" />
+   <!-- BIZ里的Service的Bean加载 -->
    <import resource="classpath:spring-biz.xml" />
-   
-   
+	<!-- Struts 的Action  -->
    <import resource="bean/user-action-bean.xml" />
+   
+   
+   
+   
 </beans>
