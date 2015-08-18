@@ -24,10 +24,11 @@
     
     <!-- 这里拦截器还有一种配置方法【针对路径进行配置】 推荐使用这个，方便直观-->
     <mvc:interceptors>
+		<bean class="com.hgn.kimi.web.interceptor.BaseInterceptor"></bean>
     	<mvc:interceptor>
     		<mvc:mapping path="/user/MyHome"/>
     		<mvc:mapping path="/usermanager/*"/>
-			<bean class="com.hgn.kimi.web.interceptor.BaseInterceptor"></bean>
+    		<bean class="com.hgn.kimi.web.interceptor.BaseInterceptor"></bean>
     	</mvc:interceptor>
     </mvc:interceptors>
     
@@ -51,8 +52,13 @@
     --> 
     <mvc:view-controller path="/header" view-name="header"/>
 
-    <!-- jsp页面解析器，当Controller返回XXX字符串时，先通过拦截器，然后该类就会在/WEB-INF/views/目录下，查找XXX.jsp文件-->
+    <!-- jsp页面解析器，当Controller返回XXX字符串时，先通过拦截器，然后该类就会在/WEB-INF/views/目录下，查找XXX.jsp文件
+    InternalResourceViewResolver：用于支持Servlet、JSP视图解析；
+    viewClass：JstlView表示JSP模板页面需要使用JSTL标签库，classpath中必须包含jstl的相关jar包；
+    prefix和suffix：查找视图页面的前缀和后缀（前缀[逻辑视图名]后缀），比如传进来的逻辑视图名为hello，则该该jsp视图页面应该存放在“WEB-INF/jsp/hello.jsp”；
+    -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
     	<property name="prefix" value="/view/"></property>
     	<property name="suffix" value=".jsp"></property>
     </bean>
