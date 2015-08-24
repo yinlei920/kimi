@@ -18,12 +18,7 @@ public class UserDO extends BaseDO {
 	/**
 	 * ID
 	 */
-	private long id;
-	
-	/**
-	 * 名字
-	 */
-	private String name;
+	private long user_id;
 	
 	/**
 	 * 用户名
@@ -31,25 +26,33 @@ public class UserDO extends BaseDO {
 	private String userName;
 	
 	/**
-	 * 性别
+	 * 名字
+	 */
+	private String name;
+	
+	/**
+	 * 性别：会显示性别
 	 */
 	private int sex;
 	
-	private String mobileType;
+	/**
+	 * 驾龄
+	 */
+	private int driveAge;
 	
 	private int mobileNum;
 	
 	/**
-	 * 车型：车牌号;
+	 * 车辆信息，和car_info 为一对多关系，即一人有可能有多辆车，这里用‘，’分割开，比如 ：100000，1000001
 	 */
 	private String cars;
 
-	public long getId() {
-		return id;
+	public long getUser_id() {
+		return user_id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setUser_id(long user_id) {
+		this.user_id = user_id;
 	}
 
 	public String getName() {
@@ -84,14 +87,6 @@ public class UserDO extends BaseDO {
 		this.cars = cars;
 	}
 
-	public String getMobileType() {
-		return mobileType;
-	}
-
-	public void setMobileType(String mobileType) {
-		this.mobileType = mobileType;
-	}
-
 	public int getMobileNum() {
 		return mobileNum;
 	}
@@ -99,5 +94,12 @@ public class UserDO extends BaseDO {
 	public void setMobileNum(int mobileNum) {
 		this.mobileNum = mobileNum;
 	}
-	
+
+	public int getDriveAge() {
+		return driveAge;
+	}
+
+	public void setDriveAge(int driveAge) {
+		this.driveAge = driveAge;
+	}
 }

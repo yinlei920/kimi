@@ -3,32 +3,130 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="UserInfo">
     <resultMap id="userResultMap" type="com.hgn.kimi.dal.dataobject.UserDO">
-        <result property="id" column="id" />
-        <result property="name" column="name" />
+        <result property="userId" column="user_id" />
         <result property="userName" column="user_name" />
+        <result property="name" column="name" />
         <result property="sex" column="sex" />
-        <result property="mobileType" column="mobile_type" />
+        <result property="driveAge" column="drive_age" />
         <result property="mobileNum" column="mobile_num" />
         <result property="cars" column="cars" />
         <result property="status" column="status" />
         <result property="gmtCreate" column="create_time" />
-        <result property="gmtModified" column="modify_time" />
+        <result property="gmtModified" column=	"modify_time" />
     </resultMap>
+    
+    <!-- 通用的查询参数 -->
+	<sql id="UserInfo.selector" >
+	    <![CDATA[
+	    	SELECT user_id,user_name,name,sex,drive_age,mobile_num,cars,status,create_time,modify_time 
+	    ]]>
+	</sql>
+	
+	
 	<select id="UserInfo.queryUserInfo"  parameterType="long" resultMap="userResultMap">
-		SELECT * FROM user_info
-			WHERE id=#{id}
+	    <include refid="UserInfo.selector" />
+	    <![CDATA[
+			FROM user_info WHERE id=#{id}
+		]]>
 	</select>
 	
 	
+	
+	<!-- 插入一条新的记录 -->
 	<insert id="UserInfo.insertUserInfo" parameterType="userDO">
 	 <![CDATA[
-		INSERT INTO user_info(id,name,sex,mobile_num,mobile_type,user_name,cars,status,create_time,modify_time) VALUES
-			(#{id},#{name},#{sex},,#{mobileNum},#{mobileType},#{userName},#{cars},#{status},#{gmtCreate},#{gmtModified})
+		INSERT INTO user_info(
+			user_id,
+			user_name,
+			name,
+			sex,
+			drive_age,
+			mobile_num,
+			cars,
+			status,
+			create_time,
+			modify_time
+		) VALUES(
+			#{userId},
+			#{userName},
+			#{name},
+			#{sex},
+			#{driveAge},
+			#{mobileNum},
+			#{cars},
+			#{status},
+			#{gmtCreate},
+			#{gmtModified})
 		]]>
 		<selectKey resultType="java.lang.Long" keyProperty="id" >
             SELECT @@IDENTITY AS id
         </selectKey>
  	</insert>
+	
+	
+	<select id="getUserList" parameterType="com.hgn.kimi.dal.queryobject.UserQuery" resultMap="userResultMap">
+	    <include refid="IbatisItemDAO.selector" />
+	    FROM user_info WHERE 1=1
+	    <if test="userId!=null and userId!=0">
+	        <![CDATA[
+	        	AND user_id = #{userId}
+	       	]]>
+	    </if>
+	    <if test="userName!=null and userName!='' ">
+	        <![CDATA[
+	        	AND user_name = #{userName,jdbcType=VARCHAR}
+	       	]]>
+	    </if>
+	    <if test="sex!=null">
+	        <![CDATA[
+	        	AND sex = #{sex,jdbcType=INTEGER}
+	       	]]>
+	    </if>
+	    <if test="driveAge!=null">
+	        <![CDATA[
+	        	AND drive_age = #{driveAge,jdbcType=INTEGER}
+	       	]]>
+	    </if>
+	    <if test="status!=null and status!=0">
+	        <![CDATA[
+	        	AND status = #{status,jdbcType=INTEGER}
+	       	]]>
+	    </if>
+	    <foreach collection="list" item="cars" index="">
+	        
+	    </foreach>
+	    
+	    
+	    
+	    
+	    
+		
+			
+	</select>	
+	
+	
+	
+	<!-- 
+	
+	<select id="IbatisItemDAO.queryItemDOListForVerify" parameterClass="com.taobao.tbtry.common.domain.query.TryItemQuery" resultMap="itemDOResultExtMap">
+        <include refid="IbatisItemDAO.selector" />
+        from try_item
+        where 1=1
+        <isNotNull property="statusStr" prepend="and">
+            STATUS in ( $statusStr$ )
+        </isNotNull>
+        <isNotNull property="sortField">
+            order by #sortField# desc
+        </isNotNull>
+        <isNull property="sortField">
+            order by ID desc
+        </isNull>
+        limit #startRow#,#pageSize#
+    </select>
+	
+	
+	 -->
+	
 	
 	
 </mapper>

@@ -18,7 +18,7 @@ public class UserInfoTransfer {
 	public static UserInfoVO to(UserDO userDO) {
         if (null == userDO) return null;
         UserInfoVO userVO = new UserInfoVO();
-        userVO.setUserId(userDO.getId());
+        userVO.setUserId(userDO.getUser_id());
         userVO.setName(userDO.getName());
         userVO.setUserName(userDO.getUserName());
         userVO.setSex(userDO.getSex());
@@ -38,7 +38,7 @@ public class UserInfoTransfer {
 		if(null== vo) return null;
 		UserDO userDO = new UserDO();
 		if(null!=vo.getUserId())
-			userDO.setId(vo.getUserId());
+			userDO.setUser_id(vo.getUserId());
 		userDO.setName(vo.getName());
 		userDO.setUserName(vo.getUserName());
 		userDO.setGmtCreate(vo.getCreateTime());
