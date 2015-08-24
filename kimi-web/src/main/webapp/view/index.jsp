@@ -17,7 +17,7 @@
 </head>
 
 
-${id}
+<%=request.getAttribute("id") %>
 
 <body>
 我是Index
