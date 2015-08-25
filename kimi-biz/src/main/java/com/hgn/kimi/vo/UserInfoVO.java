@@ -5,7 +5,6 @@ package com.hgn.kimi.vo;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Map;
 
 /**
  * @author yinlei
@@ -27,13 +26,16 @@ public class UserInfoVO implements Serializable {
 	
 	private Integer sex;
 	
-	private Map<String, String> cars;
+	private String avatarUrl;
 	
 	private Integer status;
 	
 	private Date createTime;
 	
 	private Date modifyTime;
+	
+	
+	
 
 	public Long getUserId() {
 		return userId;
@@ -67,12 +69,12 @@ public class UserInfoVO implements Serializable {
 		this.sex = sex;
 	}
 
-	public Map<String, String> getCars() {
-		return cars;
+	public String getAvatarUrl() {
+		return avatarUrl;
 	}
 
-	public void setCars(Map<String, String> cars) {
-		this.cars = cars;
+	public void setAvatarUrl(String avatarUrl) {
+		this.avatarUrl = avatarUrl;
 	}
 
 	public Integer getStatus() {

@@ -2,14 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="UserInfo">
-    <resultMap id="userResultMap" type="com.hgn.kimi.dal.dataobject.UserDO">
+    <resultMap id="userResultMap" type="userDO">
         <result property="userId" column="user_id" />
         <result property="userName" column="user_name" />
         <result property="name" column="name" />
         <result property="sex" column="sex" />
         <result property="driveAge" column="drive_age" />
         <result property="mobileNum" column="mobile_num" />
-        <result property="cars" column="cars" />
+        <result property="avatarUrl" column="avatar_url" />
         <result property="status" column="status" />
         <result property="gmtCreate" column="create_time" />
         <result property="gmtModified" column=	"modify_time" />
@@ -18,15 +18,15 @@
     <!-- 通用的查询参数 -->
 	<sql id="UserInfo.selector" >
 	    <![CDATA[
-	    	SELECT user_id,user_name,name,sex,drive_age,mobile_num,cars,status,create_time,modify_time 
+	    	SELECT user_id,user_name,name,sex,drive_age,mobile_num,avatar_url,status,create_time,modify_time 
 	    ]]>
 	</sql>
 	
 	
-	<select id="UserInfo.queryUserInfo"  parameterType="long" resultMap="userResultMap">
+	<select id="UserInfo.queryUserInfo"  parameterType="Long" resultMap="userResultMap">
 	    <include refid="UserInfo.selector" />
 	    <![CDATA[
-			FROM user_info WHERE id=#{id}
+			FROM user_info WHERE user_id=#{userId}
 		]]>
 	</select>
 	
@@ -42,7 +42,7 @@
 			sex,
 			drive_age,
 			mobile_num,
-			cars,
+			avatar_url,
 			status,
 			create_time,
 			modify_time
@@ -53,7 +53,7 @@
 			#{sex},
 			#{driveAge},
 			#{mobileNum},
-			#{cars},
+			#{avatarUrl},
 			#{status},
 			#{gmtCreate},
 			#{gmtModified})
@@ -65,7 +65,7 @@
 	
 	
 	<select id="getUserList" parameterType="com.hgn.kimi.dal.queryobject.UserQuery" resultMap="userResultMap">
-	    <include refid="IbatisItemDAO.selector" />
+	    <include refid="UserInfo.selector" />
 	    FROM user_info WHERE 1=1
 	    <if test="userId!=null and userId!=0">
 	        <![CDATA[
@@ -92,16 +92,6 @@
 	        	AND status = #{status,jdbcType=INTEGER}
 	       	]]>
 	    </if>
-	    <foreach collection="list" item="cars" index="">
-	        
-	    </foreach>
-	    
-	    
-	    
-	    
-	    
-		
-			
 	</select>	
 	
 	

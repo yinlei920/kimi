@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="IllegalInfo">
+    <resultMap id="IllegalInfoResultMap" type="illegalInfoDO">
+        <result property="carNum" column="car_num" />
+        <result property="userId" column="user_id" />
+        <result property="code" column="code" />
+        <result property="picURL" column="pic_url" />
+        <result property="videoURL" column="video_url" />
+        <result property="address" column="address" />
+        <result property="status" column="status" />
+        <result property="gmtCreate" column="create_time" />
+        <result property="gmtModified" column=	"modify_time" />
+    </resultMap>
+    
+    <!-- 通用的查询参数 -->
+	<sql id="IllegalInfo.selector" >
+	    <![CDATA[
+	    	SELECT car_num,user_id,code,pic_url,video_url,address,status,create_time,modify_time
+	    ]]>
+	</sql>
+	
+	<select id="IllegalInfo.queryIllegalInfo"  parameterType="java.util.Map" resultMap="IllegalInfoResultMap">
+	    <include refid="IllegalCode.selector" />
+			FROM illegal_code WHERE 1=1
+		<if test="carNum!=null and carNum!='' ">
+	        <![CDATA[
+	        	AND car_num = #{carNum}
+	       	]]>
+	    </if>
+		<if test="userId!=null and userId!=0">
+	        <![CDATA[
+	        	AND user_id = #{userId}
+	       	]]>
+	    </if>
+			<![CDATA[
+				LIMIT 100
+			]]>
+	</select>
+	
+</mapper>

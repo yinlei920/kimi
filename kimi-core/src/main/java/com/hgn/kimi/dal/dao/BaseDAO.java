@@ -66,7 +66,7 @@ public class BaseDAO implements InitializingBean {
 
 	public List<?> queryForList(String statementName, Object parameterObject) throws DAOException {
 		try{
-            return sqlSession.selectOne(statementName, parameterObject);
+            return sqlSession.selectList(statementName, parameterObject);
         }catch (DataAccessException e){
             throw new DAOException("[BaseDAO-queryForList]",e);
         }

@@ -18,18 +18,15 @@ public class UserInfoTransfer {
 	public static UserInfoVO to(UserDO userDO) {
         if (null == userDO) return null;
         UserInfoVO userVO = new UserInfoVO();
-        userVO.setUserId(userDO.getUser_id());
+        userVO.setUserId(userDO.getUserId());
         userVO.setName(userDO.getName());
         userVO.setUserName(userDO.getUserName());
         userVO.setSex(userDO.getSex());
         userVO.setStatus(userDO.getStatus());
         userVO.setCreateTime(userDO.getGmtCreate());
         userVO.setModifyTime(userDO.getGmtModified());
-
-        if(!Strings.isNullOrEmpty(userDO.getCars())){
-        	
-        	
-        	
+        if(!Strings.isNullOrEmpty(userDO.getAvatarUrl())){
+        	userVO.setAvatarUrl(userDO.getAvatarUrl());
         }
         return userVO;
 	}
@@ -38,7 +35,7 @@ public class UserInfoTransfer {
 		if(null== vo) return null;
 		UserDO userDO = new UserDO();
 		if(null!=vo.getUserId())
-			userDO.setUser_id(vo.getUserId());
+			userDO.setUserId(vo.getUserId());
 		userDO.setName(vo.getName());
 		userDO.setUserName(vo.getUserName());
 		userDO.setGmtCreate(vo.getCreateTime());
@@ -47,8 +44,8 @@ public class UserInfoTransfer {
 			userDO.setSex(vo.getSex());
 		if(null!=vo.getStatus())
 			userDO.setStatus(vo.getStatus());
-		if(null!=vo.getCars() && vo.getCars().size()>0){
-			//do sth
+		if(null!=vo.getAvatarUrl()){
+			userDO.setAvatarUrl(vo.getAvatarUrl());
 		}
 		return userDO;
 	}

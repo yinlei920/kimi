@@ -30,7 +30,7 @@ public class UserDAOImpl extends BaseDAO implements IUserDAO {
 			Long lastId = (Long)this.insert("UserInfo.insertUserInfo", userDO);
 			return (lastId!=null && lastId>0)?true:false;
 		} catch (DAOException e) {
-			e.printStackTrace();
+			logger.error("UserDAOImpl.CreateUserInfo  error", e.getMessage());
 		}
 		return false;
 	}

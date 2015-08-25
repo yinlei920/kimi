@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="IllegalCode">
+    <resultMap id="IllegalCodeResultMap" type="illegalCodeDO">
+        <result property="code" column="code" />
+        <result property="title" column="title" />
+        <result property="score" column="score" />
+        <result property="fines" column="fines" />
+        <result property="punishMent" column="punishment" />
+        <result property="status" column="status" />
+        <result property="gmtCreate" column="create_time" />
+        <result property="gmtModified" column=	"modify_time" />
+    </resultMap>
+    
+    <!-- 通用的查询参数 -->
+	<sql id="IllegalCode.selector" >
+	    <![CDATA[
+	    	SELECT code,title,score,fines,punishment,status,create_time,modify_time
+	    ]]>
+	</sql>
+	
+	<select id="IllegalCode.queryIllegalCode"  parameterType="String" resultMap="IllegalCodeResultMap">
+	    <include refid="IllegalCode.selector" />
+	    <![CDATA[
+			FROM illegal_code WHERE code=#{code}
+		]]>
+	</select>
+	
+</mapper>

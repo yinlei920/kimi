@@ -2,9 +2,16 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
+        <!--typeAlias 可以给_sqlmap的resultmap的type使用 -->
 		<typeAlias alias="userDO" type="com.hgn.kimi.dal.dataobject.UserDO"/>
+		<typeAlias alias="illegalInfoDO" type="com.hgn.kimi.dal.dataobject.IllegalInfoDO"/>
+		<typeAlias alias="illegalCodeDO" type="com.hgn.kimi.dal.dataobject.IllegalCodeDO"/>
+		<typeAlias alias="CarInfoCodeDO" type="com.hgn.kimi.dal.dataobject.CarInfoDO"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="ibatis/user_sqlmap.xml" />
+		<mapper resource="ibatis/carInfo_sqlmap.xml" />
+		<mapper resource="ibatis/illegalCode_sqlmap.xml" />
+		<mapper resource="ibatis/illegalInfo_sqlmap.xml" />
 	</mappers>
 </configuration>	
