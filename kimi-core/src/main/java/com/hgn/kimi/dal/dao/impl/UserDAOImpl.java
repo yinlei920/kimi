@@ -5,12 +5,13 @@ package com.hgn.kimi.dal.dao.impl;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.hgn.kimi.dal.dao.BaseDAO;
 import com.hgn.kimi.dal.dao.IUserDAO;
 import com.hgn.kimi.dal.dataobject.UserDO;
 import com.hgn.kimi.exception.DAOException;
-import com.opensymphony.xwork2.util.logging.Logger;
-import com.opensymphony.xwork2.util.logging.LoggerFactory;
 
 /**
  * @author yinlei

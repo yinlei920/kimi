@@ -3,7 +3,11 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.springframework.org/schema/beans
   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-    <bean id="userInfoService" class="com.hgn.kimi.biz.impl.UserInfoServiceImpl" autowire="default">
-        	<property name="userDAO"  ref="userDAO" />
-    </bean>
+  
+    
+    
+    
+    
+    <bean id="userInfoService" class="com.hgn.kimi.biz.impl.UserInfoServiceImpl" autowire="default"/>
+    <bean id="carInfoService"  class="com.hgn.kimi.biz.impl.CarInfoServiceImpl" autowire="default"/>
 </beans>

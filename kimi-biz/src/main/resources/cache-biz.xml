@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName">
+	
+    
+    
+    <!-- 
+    cacheManager 用于组合CacheManager，即可以从多个CacheManager中轮询得到相应的Cache
+     -->
+    <bean id="cacheManagers" class="org.springframework.cache.support.CompositeCacheManager">  
+	    <property name="cacheManagers">  
+	        <list>  
+	            <ref bean="ehcacheManager"/>  
+	        </list>  
+	    </property>  
+    	<property name="fallbackToNoOpCache" value="true"/>  
+	</bean>
+    
+    
+    <!-- ehcache factoryBean  主要是配置  -->
+    <bean id="cacheManagerFactory" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">  
+        <property name="configLocation" value="classpath:ehcache.xml"/>  
+    </bean>
+    <!-- 生成ehcache的manager -->
+    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">  
+        <property name="cacheManager" ref="cacheManagerFactory"/>  
+    </bean> 
+    
+    
+    
+    
+    
+    
+    
+</beans>

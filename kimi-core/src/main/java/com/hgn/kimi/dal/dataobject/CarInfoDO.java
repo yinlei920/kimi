@@ -18,7 +18,7 @@ public class CarInfoDO extends BaseDO {
 	
 	private Integer carId;
 	
-	private String picURL;
+	private String carPic;
 	
 	private Long	userId;
 
@@ -38,12 +38,12 @@ public class CarInfoDO extends BaseDO {
 		this.carId = carId;
 	}
 
-	public String getPicURL() {
-		return picURL;
+	public String getCarPic() {
+		return carPic;
 	}
 
-	public void setPicURL(String picURL) {
-		this.picURL = picURL;
+	public void setCarPic(String carPic) {
+		this.carPic = carPic;
 	}
 
 	public Long getUserId() {

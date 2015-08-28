@@ -18,6 +18,8 @@ public class IllegalInfoVO implements Serializable {
 	 */
 	private static final long serialVersionUID = -2386963224685553258L;
 	
+	private Long id;
+	
 	/**
 	 * 车牌号
 	 */
@@ -44,6 +46,9 @@ public class IllegalInfoVO implements Serializable {
 	 * 违法的地址 
 	 */
 	private String address;
+	
+	
+	private Long reportUserId;
 	
 	private int status;
 	
@@ -122,8 +127,20 @@ public class IllegalInfoVO implements Serializable {
 	public void setModifyTime(Date modifyTime) {
 		this.modifyTime = modifyTime;
 	}
-	
-	
-	
-	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getReportUserId() {
+		return reportUserId;
+	}
+
+	public void setReportUserId(Long reportUserId) {
+		this.reportUserId = reportUserId;
+	}
 }

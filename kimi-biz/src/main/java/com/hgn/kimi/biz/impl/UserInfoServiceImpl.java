@@ -3,6 +3,8 @@
  */
 package com.hgn.kimi.biz.impl;
 
+import javax.annotation.Resource;
+
 import com.hgn.kimi.biz.IUserInfoService;
 import com.hgn.kimi.dal.dao.IUserDAO;
 import com.hgn.kimi.dal.dataobject.UserDO;
@@ -15,7 +17,8 @@ import com.hgn.kimi.vo.transfer.UserInfoTransfer;
  *
  */
 public class UserInfoServiceImpl implements IUserInfoService {
-
+	
+	@Resource
 	private IUserDAO userDAO;
 	
 	
@@ -50,15 +53,5 @@ public class UserInfoServiceImpl implements IUserInfoService {
 		}
 		return false;
 	}
-
-	public IUserDAO getUserDAO() {
-		return userDAO;
-	}
-
-	public void setUserDAO(IUserDAO userDAO) {
-		this.userDAO = userDAO;
-	}
-	
-	
 
 }

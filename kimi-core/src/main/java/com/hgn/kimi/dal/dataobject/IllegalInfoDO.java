@@ -15,6 +15,8 @@ public class IllegalInfoDO extends BaseDO {
 	 */
 	private static final long serialVersionUID = 3750986165532025302L;
 
+	private Long id;
+	
 	private String carNum;
 	
 	private Long userId;
@@ -38,6 +40,8 @@ public class IllegalInfoDO extends BaseDO {
 	 * 违法的地址 
 	 */
 	private String address;
+	
+	private Long reportUserId;
 
 	public String getCarNum() {
 		return carNum;
@@ -85,6 +89,22 @@ public class IllegalInfoDO extends BaseDO {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getReportUserId() {
+		return reportUserId;
+	}
+
+	public void setReportUserId(Long reportUserId) {
+		this.reportUserId = reportUserId;
 	}
 	
 

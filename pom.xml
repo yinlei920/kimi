@@ -235,7 +235,37 @@
 			    <groupId>org.mybatis</groupId>  
 			    <artifactId>mybatis-spring</artifactId>  
 			    <version>1.2.0</version>  
-			 </dependency>  
+			 </dependency> 
+			 
+			 
+			 <!-- ================================================= -->
+            <!-- 日志及相关依赖（用slf4j+logback代替jcl+log4j） -->
+            <!-- ================================================= -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.6.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>1.6.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>1.6.1</version>
+            </dependency>
+            <!-- 引入空包,确保commons-logging的jar包不被引入，否则将和jcl-over-slf4j冲突 -->
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>99.0-does-not-exist</version>
+            </dependency>
+			 
+			 
+			 
+			 
         </dependencies>
     </dependencyManagement>
 </project>

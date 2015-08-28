@@ -3,7 +3,8 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.springframework.org/schema/beans
   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-  
-    <bean id="userDAO" class="com.hgn.kimi.dal.dao.impl.UserDAOImpl" parent="baseDAO"/>
-    
+    <bean id="userDAO"        class="com.hgn.kimi.dal.dao.impl.UserDAOImpl"        parent="baseDAO"/>
+    <bean id="carInfoDAO"     class="com.hgn.kimi.dal.dao.impl.CarInfoDAOImpl"     parent="baseDAO"/>
+    <bean id="illegalCodeDAO" class="com.hgn.kimi.dal.dao.impl.IllegalCodeDAOImpl" parent="baseDAO"/>
+    <bean id="illegalInfoDAO" class="com.hgn.kimi.dal.dao.impl.IllegalInfoDAOImpl" parent="baseDAO"/>
 </beans>

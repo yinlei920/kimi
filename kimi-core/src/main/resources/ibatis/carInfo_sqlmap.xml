@@ -24,16 +24,16 @@
 			FROM car_info WHERE 1=1
 			<if test="carNum!=null and carNum!='' ">
 		        <![CDATA[
-		        	AND car_num = #{carNum}
+		        	AND car_num = #{carNum,jdbcType=VARCHAR}
 		       	]]>
 	    	</if>
 			<if test="userId!=null and userId!=0">
 		        <![CDATA[
-		        	AND user_id = #{userId}
+		        	AND user_id = #{userId,jdbcType=INTEGER}
 		       	]]>
 		    </if>
 			<![CDATA[
-				LIMIT 100
+				AND status=#{status} LIMIT 100
 			]]>
 	</select>
 	

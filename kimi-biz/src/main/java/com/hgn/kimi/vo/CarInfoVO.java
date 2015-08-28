@@ -5,6 +5,7 @@ package com.hgn.kimi.vo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author yinlei
@@ -19,17 +20,23 @@ public class CarInfoVO implements Serializable {
 
 	private String carNum;
 	
-	private Integer carId;
+	private int carId;
 	
 	private String picURL;
 	
-	private Long	userId;
+	private long	userId;
 	
 	private int status;
 	
 	private Date createTime;
 	
 	private Date modifyTime;
+	
+	/**
+	 * 违法列表
+	 */
+	private List<IllegalInfoVO> illegalList;
+	
 
 	public String getCarNum() {
 		return carNum;
@@ -86,7 +93,13 @@ public class CarInfoVO implements Serializable {
 	public void setModifyTime(Date modifyTime) {
 		this.modifyTime = modifyTime;
 	}
-	
-	
+
+	public List<IllegalInfoVO> getIllegalList() {
+		return illegalList;
+	}
+
+	public void setIllegalList(List<IllegalInfoVO> illegalList) {
+		this.illegalList = illegalList;
+	}
 	
 }
