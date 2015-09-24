@@ -21,7 +21,13 @@
 	<context:component-scan base-package="com.hgn.kimi"></context:component-scan>
 	
 	<!-- 开启缓存注解功能 -->
+	
+	<!-- 
+	
 	<cache:annotation-driven cache-manager="cacheManager"/>
+	 -->
+	
+	
 	<!--proxy-target-class="true"强制使用cglib代理   如果为false则spring会自动选择-->
 	<aop:aspectj-autoproxy  proxy-target-class="true"/>
 	<!-- 数据库配置文件位置 -->
