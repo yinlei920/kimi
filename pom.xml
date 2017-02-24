@@ -22,15 +22,15 @@
 
 
   <properties>
-    <java.version>1.6</java.version>
+    <java.version>1.8</java.version>
     <java.encoding>UTF-8</java.encoding>
-    <spring.version>3.2.9.RELEASE</spring.version>
+    <spring.version>4.2.5.RELEASE</spring.version>
     <struts.version>2.3.14</struts.version>
     <webx.version>3.2.4</webx.version>
     <junit.version>3.8.1</junit.version>
     <kimicore.version>1.0.1-SNAPSHOT</kimicore.version>
     <kimibiz.version>1.0.1-SNAPSHOT</kimibiz.version>
-    
+    <log4j.version>2.4.1</log4j.version>
     
     
     <project.build.sourceEncoding>${java.encoding}</project.build.sourceEncoding>
@@ -241,6 +241,8 @@
 			 <!-- ================================================= -->
             <!-- 日志及相关依赖（用slf4j+logback代替jcl+log4j） -->
             <!-- ================================================= -->
+            
+            <!-- 
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
@@ -256,12 +258,73 @@
                 <artifactId>slf4j-log4j12</artifactId>
                 <version>1.6.1</version>
             </dependency>
-            <!-- 引入空包,确保commons-logging的jar包不被引入，否则将和jcl-over-slf4j冲突 -->
             <dependency>
                 <groupId>commons-logging</groupId>
                 <artifactId>commons-logging</artifactId>
                 <version>99.0-does-not-exist</version>
             </dependency>
+             -->
+            
+            
+            
+            
+            
+            
+            
+            
+        <dependency>  
+            <groupId>org.slf4j</groupId>  
+            <artifactId>slf4j-api</artifactId>  
+            <version>1.7.13</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.slf4j</groupId>  
+            <artifactId>jcl-over-slf4j</artifactId>  
+            <version>1.7.13</version>  
+            <scope>runtime</scope>  
+        </dependency>  
+  
+        <!--核心log4j2jar包-->  
+        <dependency>  
+            <groupId>org.apache.logging.log4j</groupId>  
+            <artifactId>log4j-api</artifactId>  
+            <version>${log4j.version}</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.apache.logging.log4j</groupId>  
+            <artifactId>log4j-core</artifactId>  
+            <version>${log4j.version}</version>  
+        </dependency>  
+        <!--用于与slf4j保持桥接-->  
+        <dependency>  
+            <groupId>org.apache.logging.log4j</groupId>  
+            <artifactId>log4j-slf4j-impl</artifactId>  
+            <version>${log4j.version}</version>  
+        </dependency>  
+        <!--web工程需要包含log4j-web，非web工程不需要-->  
+        <dependency>  
+            <groupId>org.apache.logging.log4j</groupId>  
+            <artifactId>log4j-web</artifactId>  
+            <version>${log4j.version}</version>  
+            <scope>runtime</scope>  
+        </dependency>  
+  
+        <!--需要使用log4j2的AsyncLogger需要包含disruptor-->  
+        <dependency>  
+            <groupId>com.lmax</groupId>  
+            <artifactId>disruptor</artifactId>  
+            <version>3.2.0</version>  
+        </dependency>  
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
 			 
 			 
 			 

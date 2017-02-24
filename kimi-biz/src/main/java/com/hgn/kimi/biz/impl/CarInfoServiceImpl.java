@@ -41,6 +41,7 @@ public class CarInfoServiceImpl implements ICarInfoService {
 	@Override
 	public CarInfoVO getCarInfoVOByCarNum(String carNum) {
 		CarInfoVO carVO = null; 
+		log.info("获取汽车信息，车牌号为："+carNum);
 		try {
 			CarInfoDO carDO = carInfoDAO.getCarInfo(carNum);
 			List<IllegalInfoVO> infoVO = new ArrayList<IllegalInfoVO>();
@@ -67,8 +68,19 @@ public class CarInfoServiceImpl implements ICarInfoService {
 	 */
 	@Override
 	public List<CarInfoVO> getCarInfoListByUserId(Long userId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<CarInfoVO> cars = new ArrayList<CarInfoVO>();
+		try {
+			List<CarInfoDO> carList =  carInfoDAO.getCarList(userId);
+			if(null!=carList && carList.size()>0){
+				for(CarInfoDO carDO:carList){
+					CarInfoVO vo = CarInfoTransfer.doTOvo(carDO);
+					cars.add(vo);
+				}
+			}
+		} catch (DAOException e) {
+			log.error(e.getMessage());
+		}
+		return cars;
 	}
 
 }

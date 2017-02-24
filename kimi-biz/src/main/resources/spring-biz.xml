@@ -1,13 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.springframework.org/schema/beans
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-  
-    
-    
-    
-    
-    <bean id="userInfoService" class="com.hgn.kimi.biz.impl.UserInfoServiceImpl" autowire="default"/>
-    <bean id="carInfoService"  class="com.hgn.kimi.biz.impl.CarInfoServiceImpl" autowire="default"/>
+
+
+	<bean id="userInfoService" class="com.hgn.kimi.biz.impl.UserInfoServiceImpl"
+		autowire="default" />
+	<bean id="carInfoService" class="com.hgn.kimi.biz.impl.CarInfoServiceImpl"
+		autowire="default" />
+
+
+
+
+
+	<bean id="carInfoHSF" class="com.taobao.hsf.app.spring.util.HSFSpringProviderBean" init-method="init">
+		<property name="serviceInterface">
+			<value>com.hgn.kimi.biz.ICarInfoService</value>
+		</property>
+		<property name="target">
+			<ref bean="carInfoService" />
+		</property>
+		<property name="serviceVersion">
+			<value>1.0.0.daily</value>
+		</property>
+		<property name="serviceGroup">
+			<value>HSF</value><!-- 组别一致的服务才可以互相调用 -->
+		</property>
+		<property name="serviceName"><!--仅仅便于管理 -->
+			<value>carInfoService</value>
+		</property>
+	</bean>
+
 </beans>

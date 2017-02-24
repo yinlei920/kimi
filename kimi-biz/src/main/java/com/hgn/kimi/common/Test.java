@@ -3,6 +3,9 @@
  */
 package com.hgn.kimi.common;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import com.google.common.cache.Cache;
@@ -19,16 +22,43 @@ public class Test {
 	    Cache<String, String> cahce=CacheBuilder.newBuilder().expireAfterAccess(8, TimeUnit.SECONDS).maximumSize(10).build(new CacheLoader<String, String>() {
 	        @Override  
 	        public String load(String key) throws Exception {  
-	            if(key.equals("a")) return "a啊你妹";
-	            if(key.equals("b")) return "b啊你妹";
-	            if(key.equals("c")) return "c啊你妹";
-	            if(key.equals("d")) return "d啊你妹";
-	            if(key.equals("e")) return "e啊你妹";
-	            if(key.equals("f")) return "f啊你妹";
 				return key;
 	        }  
 	    });  
 	    cahce.put("a", "11111111111111");
+	    
+	    
+	    
+	    
+	    String aaa = "aaaaaaa晚上来啊！！！中華";
+	    String a1 = "aaa啊";
+	    
+	    
+	    System.out.println(a1.length());
+	    
+	    
+	    System.out.println(Charset.defaultCharset());
+    	
+//    	try {
+//			String utf8 = new String(aaa.getBytes("GBK"));
+//			System.out.println(utf8);	    
+//			String unicode = new String(utf8.getBytes(),"GB2312");
+//			System.out.println(unicode);
+//			String gbk = new String(unicode.getBytes(),"utf8");
+//			System.out.println(gbk);
+//			
+//			
+//			
+//			
+//			Date date= new Date();
+//			System.out.println(date);
+//			
+//			
+//			
+//		} catch (UnsupportedEncodingException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 //	    System.out.println(b);  
 //	    Book b2=cahce.apply("q");  
 //	    System.out.println(b2);  

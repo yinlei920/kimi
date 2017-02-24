@@ -9,6 +9,11 @@
      </action>
      
      
+     
+     
+     
+     
+     
      <action name="userInfoForm" class="com.hgn.kimi.web.user.UserRegisterForm">
             <result name="success">/user/user_register.jsp</result>
      </action>
